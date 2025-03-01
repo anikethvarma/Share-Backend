@@ -3,6 +3,8 @@ const jwt = require("jsonwebtoken");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
 const uri =
   "mongodb+srv://Aniketh:Nikki999@todoapp.4xxt1pe.mongodb.net/?retryWrites=true&w=majority&appName=todoApp";
 
@@ -11,6 +13,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 const client = new MongoClient(uri, {
   serverApi: {
